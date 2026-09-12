@@ -22,6 +22,12 @@
   - Images: put your photo files in this SAME folder as this
     file (no subfolders — keeps uploading from a phone/tablet
     simple), then just type the filename here, e.g. "sunset.jpg"
+  - Section icons: each home screen icon is just an image file
+    (icon-about.png, icon-gallery.png, icon-templates.png,
+    icon-members.png, icon-calendar.png, icon-tutorials.png,
+    icon-equipment.png, icon-colours.png). To change one, just
+    upload a new image with that exact same filename to replace
+    it — no need to edit this file or any code.
 
   If you break something, don't worry — send me (Claude) this
   file and I'll help fix it.

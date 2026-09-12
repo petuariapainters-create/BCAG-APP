@@ -27,14 +27,54 @@
     <div class="mark">BCAG</div>
   </div>
 
+  <!-- HOME -->
+  <section class="screen active" id="home">
+    <div class="home-grid">
+      <div class="tile" onclick="showScreen('about')">
+        <div class="tile-icon"><img src="icon-about.png" alt="About"></div>
+        <div class="tile-label">About</div>
+      </div>
+      <div class="tile" onclick="showScreen('inspirationGallery')">
+        <div class="tile-icon"><img src="icon-gallery.png" alt="Inspiration Gallery"></div>
+        <div class="tile-label">Inspiration Gallery</div>
+      </div>
+      <div class="tile" onclick="showScreen('templates')">
+        <div class="tile-icon"><img src="icon-templates.png" alt="Templates"></div>
+        <div class="tile-label">Templates</div>
+      </div>
+      <div class="tile" onclick="showScreen('membersGallery')">
+        <div class="tile-icon"><img src="icon-members.png" alt="Members Gallery"></div>
+        <div class="tile-label">Members Gallery</div>
+      </div>
+      <div class="tile" onclick="showScreen('calendar')">
+        <div class="tile-icon"><img src="icon-calendar.png" alt="Calendar"></div>
+        <div class="tile-label">Calendar</div>
+      </div>
+      <div class="tile" onclick="showScreen('tutorials')">
+        <div class="tile-icon"><img src="icon-tutorials.png" alt="Painting Tutorials"></div>
+        <div class="tile-label">Painting Tutorials</div>
+      </div>
+      <div class="tile" onclick="showScreen('equipment')">
+        <div class="tile-icon"><img src="icon-equipment.png" alt="Art Equipment"></div>
+        <div class="tile-label">Art Equipment</div>
+      </div>
+      <div class="tile" onclick="showScreen('colours')">
+        <div class="tile-icon"><img src="icon-colours.png" alt="Dan's Colours"></div>
+        <div class="tile-label">Dan's Colours</div>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
-  <section class="screen active" id="about">
+  <section class="screen" id="about">
+    <div class="back-row" onclick="showScreen('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg> Back</div>
     <h2 class="page-title">About</h2>
     <div class="about-body" id="about-body"></div>
   </section>
 
   <!-- INSPIRATION GALLERY -->
   <section class="screen" id="inspirationGallery">
+    <div class="back-row" onclick="showScreen('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg> Back</div>
     <h2 class="page-title">Inspiration Gallery</h2>
     <p style="font-size:12.5px;color:var(--ink-soft);margin:-8px 0 16px;">Tap an image to view it larger, then press and hold to save it.</p>
     <div class="grid" id="inspirationGallery-grid"></div>
@@ -42,6 +82,7 @@
 
   <!-- TEMPLATES -->
   <section class="screen" id="templates">
+    <div class="back-row" onclick="showScreen('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg> Back</div>
     <h2 class="page-title">Templates</h2>
     <p style="font-size:12.5px;color:var(--ink-soft);margin:-8px 0 16px;">These are printed by Dan for use in sessions.</p>
     <div class="grid" id="templates-grid"></div>
@@ -49,68 +90,38 @@
 
   <!-- MEMBERS GALLERY -->
   <section class="screen" id="membersGallery">
+    <div class="back-row" onclick="showScreen('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg> Back</div>
     <h2 class="page-title">Members Gallery</h2>
     <div class="grid" id="membersGallery-grid"></div>
   </section>
 
   <!-- CALENDAR -->
   <section class="screen" id="calendar">
+    <div class="back-row" onclick="showScreen('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg> Back</div>
     <h2 class="page-title">Calendar</h2>
     <div id="calendar-list"></div>
   </section>
 
   <!-- TUTORIALS -->
   <section class="screen" id="tutorials">
+    <div class="back-row" onclick="showScreen('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg> Back</div>
     <h2 class="page-title">Painting Tutorials</h2>
     <div class="grid" id="tutorials-grid"></div>
   </section>
 
   <!-- EQUIPMENT -->
   <section class="screen" id="equipment">
+    <div class="back-row" onclick="showScreen('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg> Back</div>
     <h2 class="page-title">Art Equipment</h2>
     <div id="equipment-list"></div>
   </section>
 
   <!-- COLOURS -->
   <section class="screen" id="colours">
+    <div class="back-row" onclick="showScreen('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg> Back</div>
     <h2 class="page-title">Dan's Recommended Colours</h2>
     <div id="colours-list"></div>
   </section>
-
-  <div class="nav">
-    <button class="navbtn active" data-target="about" onclick="showScreen('about', this)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/></svg>
-      About
-    </button>
-    <button class="navbtn" data-target="inspirationGallery" onclick="showScreen('inspirationGallery', this)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5.5-5.5L5 21"/></svg>
-      Gallery
-    </button>
-    <button class="navbtn" data-target="templates" onclick="showScreen('templates', this)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l5 5v15H6Z"/><path d="M15 2v5h5"/><path d="M9 13h6M9 17h6"/></svg>
-      Templates
-    </button>
-    <button class="navbtn" data-target="membersGallery" onclick="showScreen('membersGallery', this)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="18" cy="9" r="2.3"/><path d="M15.8 13.5a5 5 0 0 1 6.2 4.9"/></svg>
-      Members
-    </button>
-    <button class="navbtn" data-target="calendar" onclick="showScreen('calendar', this)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
-      Calendar
-    </button>
-    <button class="navbtn" data-target="tutorials" onclick="showScreen('tutorials', this)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5Z" fill="currentColor" stroke="none"/></svg>
-      Tutorials
-    </button>
-    <button class="navbtn" data-target="equipment" onclick="showScreen('equipment', this)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
-      Equipment
-    </button>
-    <button class="navbtn" data-target="colours" onclick="showScreen('colours', this)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a9 8 0 1 0 0 16c1.2 0 1.5-1 .8-1.8-.6-.7-.3-1.7.8-1.7H15a5 5 0 0 0 5-5c0-4.4-3.6-7.5-8-7.5Z"/><circle cx="7.5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="9.5" cy="8" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="8" r="1" fill="currentColor" stroke="none"/></svg>
-      Colours
-    </button>
-  </div>
 
 </div>
 
@@ -133,11 +144,10 @@
 <script src="content.js"></script>
 <script>
 
-function showScreen(id, btn){
+function showScreen(id){
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.navbtn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+  window.scrollTo(0,0);
 }
 
 function openImgModal(src){
