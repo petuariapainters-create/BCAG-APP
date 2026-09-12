@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCAG</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0A3862">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="BCAG">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <div class="topbar">
+    <img class="logo" src="icon-192.png" alt="BCAG logo">
+    <div class="mark">BCAG</div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="screen active" id="about">
+    <h2 class="page-title">About</h2>
+    <div class="about-body" id="about-body"></div>
+  </section>
+
+  <!-- INSPIRATION GALLERY -->
+  <section class="screen" id="inspirationGallery">
+    <h2 class="page-title">Inspiration Gallery</h2>
+    <p style="font-size:12.5px;color:var(--ink-soft);margin:-8px 0 16px;">Tap an image to view it larger, then press and hold to save it.</p>
+    <div class="grid" id="inspirationGallery-grid"></div>
+  </section>
+
+  <!-- TEMPLATES -->
+  <section class="screen" id="templates">
+    <h2 class="page-title">Templates</h2>
+    <p style="font-size:12.5px;color:var(--ink-soft);margin:-8px 0 16px;">These are printed by Dan for use in sessions.</p>
+    <div class="grid" id="templates-grid"></div>
+  </section>
+
+  <!-- MEMBERS GALLERY -->
+  <section class="screen" id="membersGallery">
+    <h2 class="page-title">Members Gallery</h2>
+    <div class="grid" id="membersGallery-grid"></div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section class="screen" id="calendar">
+    <h2 class="page-title">Calendar</h2>
+    <div id="calendar-list"></div>
+  </section>
+
+  <!-- TUTORIALS -->
+  <section class="screen" id="tutorials">
+    <h2 class="page-title">Painting Tutorials</h2>
+    <div class="grid" id="tutorials-grid"></div>
+  </section>
+
+  <!-- EQUIPMENT -->
+  <section class="screen" id="equipment">
+    <h2 class="page-title">Art Equipment</h2>
+    <div id="equipment-list"></div>
+  </section>
+
+  <!-- COLOURS -->
+  <section class="screen" id="colours">
+    <h2 class="page-title">Dan's Recommended Colours</h2>
+    <div id="colours-list"></div>
+  </section>
+
+  <div class="nav">
+    <button class="navbtn active" data-target="about" onclick="showScreen('about', this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/></svg>
+      About
+    </button>
+    <button class="navbtn" data-target="inspirationGallery" onclick="showScreen('inspirationGallery', this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M21 16l-5.5-5.5L5 21"/></svg>
+      Gallery
+    </button>
+    <button class="navbtn" data-target="templates" onclick="showScreen('templates', this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l5 5v15H6Z"/><path d="M15 2v5h5"/><path d="M9 13h6M9 17h6"/></svg>
+      Templates
+    </button>
+    <button class="navbtn" data-target="membersGallery" onclick="showScreen('membersGallery', this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="18" cy="9" r="2.3"/><path d="M15.8 13.5a5 5 0 0 1 6.2 4.9"/></svg>
+      Members
+    </button>
+    <button class="navbtn" data-target="calendar" onclick="showScreen('calendar', this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+      Calendar
+    </button>
+    <button class="navbtn" data-target="tutorials" onclick="showScreen('tutorials', this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5Z" fill="currentColor" stroke="none"/></svg>
+      Tutorials
+    </button>
+    <button class="navbtn" data-target="equipment" onclick="showScreen('equipment', this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+      Equipment
+    </button>
+    <button class="navbtn" data-target="colours" onclick="showScreen('colours', this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a9 8 0 1 0 0 16c1.2 0 1.5-1 .8-1.8-.6-.7-.3-1.7.8-1.7H15a5 5 0 0 0 5-5c0-4.4-3.6-7.5-8-7.5Z"/><circle cx="7.5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="9.5" cy="8" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="8" r="1" fill="currentColor" stroke="none"/></svg>
+      Colours
+    </button>
+  </div>
+
+</div>
+
+<!-- image lightbox -->
+<div class="modal-overlay" id="imgModal" onclick="closeImgModal(event)">
+  <div class="modal-box" style="background:#fff; aspect-ratio:auto;">
+    <button class="modal-close" onclick="closeImgModal(event)">Close ✕</button>
+    <img id="imgModalPic" src="" style="width:100%; display:block; border-radius:14px;">
+  </div>
+</div>
+
+<!-- video modal -->
+<div class="modal-overlay" id="videoModal" onclick="closeVideoModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeVideoModal(event)">Close ✕</button>
+    <iframe id="videoFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script src="content.js"></script>
+<script>
+
+function showScreen(id, btn){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.navbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function openImgModal(src){
+  document.getElementById('imgModalPic').src = src;
+  document.getElementById('imgModal').classList.add('active');
+}
+function closeImgModal(e){
+  if(e.target.id === 'imgModal' || e.target.classList.contains('modal-close')){
+    document.getElementById('imgModal').classList.remove('active');
+  }
+}
+
+function openVideoModal(url){
+  // convert a normal YouTube watch link into an embeddable one
+  let embed = url;
+  const match = url.match(/(?:v=|youtu\.be\/)([A-Za-z0-9_-]{6,})/);
+  if(match){ embed = 'https://www.youtube.com/embed/' + match[1] + '?autoplay=1'; }
+  document.getElementById('videoFrame').src = embed;
+  document.getElementById('videoModal').classList.add('active');
+}
+function closeVideoModal(e){
+  document.getElementById('videoFrame').src = '';
+  document.getElementById('videoModal').classList.remove('active');
+}
+
+function monthShort(dateStr){
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('en-GB', { month: 'short' });
+}
+function dayNum(dateStr){
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.getDate();
+}
+
+function renderAll(){
+  // About
+  document.getElementById('about-body').innerHTML =
+    `<h3 style="margin-bottom:10px;">${CONTENT.about.title}</h3>` +
+    CONTENT.about.body.replace(/\n/g, '<br>');
+
+  // Inspiration Gallery (downloadable — tap to view + save hint)
+  document.getElementById('inspirationGallery-grid').innerHTML = CONTENT.inspirationGallery.map(p => `
+    <div>
+      <div class="card-img-wrap" onclick="openImgModal('${p.image}')">
+        <img src="${p.image}" alt="${p.title}">
+      </div>
+      <div class="card-cap"><h3>${p.title}</h3><p>${p.note || ''}</p></div>
+    </div>
+  `).join('');
+
+  // Templates (view only, no save hint)
+  document.getElementById('templates-grid').innerHTML = CONTENT.templates.map(t => `
+    <div>
+      <div class="card-img-wrap" onclick="openImgModal('${t.image}')">
+        <img src="${t.image}" alt="${t.title}">
+      </div>
+      <div class="card-cap"><h3>${t.title}</h3></div>
+    </div>
+  `).join('');
+
+  // Members Gallery
+  document.getElementById('membersGallery-grid').innerHTML = CONTENT.membersGallery.map(m => `
+    <div>
+      <div class="card-img-wrap" onclick="openImgModal('${m.image}')">
+        <img src="${m.image}" alt="${m.title}">
+      </div>
+      <div class="card-cap"><h3>${m.title}</h3><p>${m.member}</p></div>
+    </div>
+  `).join('');
+
+  // Calendar
+  document.getElementById('calendar-list').innerHTML = CONTENT.calendar.map(c => `
+    <div class="list-row">
+      <div class="cal-date"><div class="d">${dayNum(c.date)}</div><div class="m">${monthShort(c.date)}</div></div>
+      <div class="list-text">
+        <h3>${c.time}</h3>
+        <p>${c.note || ''}</p>
+      </div>
+      <div class="status-pill ${c.status === 'hosted' ? 'status-hosted' : 'status-self-run'}">
+        ${c.status === 'hosted' ? 'Hosted' : 'Self-run'}
+      </div>
+    </div>
+  `).join('');
+
+  // Tutorials
+  document.getElementById('tutorials-grid').innerHTML = CONTENT.tutorials.map(t => `
+    <div>
+      <div class="card-img-wrap" onclick="openVideoModal('${t.videoUrl}')">
+        <img src="${t.image}" alt="${t.title}">
+        <div class="play-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A3862"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="card-cap"><h3>${t.title}</h3></div>
+    </div>
+  `).join('');
+
+  // Equipment
+  document.getElementById('equipment-list').innerHTML = CONTENT.equipment.map(e => `
+    <div class="list-row">
+      <div class="list-text"><h3>${e.item}</h3><p>${e.note || ''}</p></div>
+    </div>
+  `).join('');
+
+  // Colours
+  document.getElementById('colours-list').innerHTML = CONTENT.colours.map(c => `
+    <div class="list-row">
+      <div class="list-text"><h3>${c.name}</h3><p>${c.brand}${c.note ? ' · ' + c.note : ''}</p></div>
+    </div>
+  `).join('');
+}
+
+renderAll();
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

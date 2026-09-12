@@ -1,0 +1,170 @@
+/*
+  BCAG APP — LOOK & LAYOUT
+  You shouldn't normally need to edit this file.
+  All everyday content changes belong in content.js instead.
+*/
+
+:root{
+  --blue: #0B5CAE;
+  --blue-deep: #0A3862;
+  --blue-light: #EAF2FB;
+  --paper: #FAFAF8;
+  --ink: #202733;
+  --ink-soft: #6B7280;
+  --gold: #E8A93B;
+  --border: #DCE6F0;
+}
+
+*{ box-sizing: border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Karla', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3{
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  margin:0;
+  line-height:1.2;
+}
+
+.app{
+  max-width: 460px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* top bar */
+.topbar{
+  display:flex; align-items:center; gap:12px;
+  padding: 18px 20px 12px;
+}
+.topbar img.logo{ width:38px; height:38px; border-radius:50%; }
+.topbar .mark{
+  font-family:'Fraunces', serif;
+  font-size:20px; font-weight:600;
+  color: var(--blue-deep);
+}
+
+.screen{ display:none; flex:1; padding: 6px 20px 100px; overflow-y:auto; }
+.screen.active{ display:block; }
+
+.screen h2.page-title{ font-size:22px; margin: 8px 0 16px; color: var(--blue-deep); }
+
+/* about */
+.about-body{ font-size:15px; line-height:1.6; color: var(--ink); white-space: pre-line; }
+
+/* cards / grids */
+.grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+.card-img-wrap{
+  position:relative;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background: var(--blue-light);
+  aspect-ratio: 1/1;
+}
+.card-img-wrap img{ width:100%; height:100%; object-fit:cover; display:block; }
+.card-cap{ margin-top:8px; }
+.card-cap h3{ font-size:14px; margin-bottom:2px; }
+.card-cap p{ font-size:11.5px; color:var(--ink-soft); margin:0; }
+
+.download-btn{
+  position:absolute; bottom:8px; right:8px;
+  background: rgba(255,255,255,.92);
+  border-radius:50%;
+  width:32px; height:32px;
+  display:flex; align-items:center; justify-content:center;
+  text-decoration:none;
+}
+
+.play-badge{
+  position:absolute; inset:0; margin:auto;
+  width:40px; height:40px;
+  background: rgba(255,255,255,.9);
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* lists (calendar, equipment, colours) */
+.list-row{
+  display:flex; align-items:center; gap:12px;
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
+}
+.list-row:last-child{ border-bottom:none; }
+.list-text h3{ font-size:14.5px; margin-bottom:2px; font-family:'Karla',sans-serif; font-weight:700;}
+.list-text p{ font-size:12.5px; color:var(--ink-soft); margin:0; }
+
+.status-pill{
+  margin-left:auto;
+  font-size:11px; font-weight:700;
+  padding:5px 11px; border-radius:999px;
+  flex-shrink:0;
+  white-space:nowrap;
+}
+.status-hosted{ background:#E4F3E8; color:#256B3A; }
+.status-self-run{ background:#FCEFDA; color:#8A5A16; }
+
+.cal-date{
+  background: var(--blue-light);
+  border-radius:12px;
+  width:52px; height:52px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.cal-date .d{ font-family:'Fraunces',serif; font-size:18px; line-height:1; color:var(--blue-deep); }
+.cal-date .m{ font-size:10px; color:var(--ink-soft); text-transform:uppercase; }
+
+/* modal for tutorial videos */
+.modal-overlay{
+  display:none;
+  position:fixed; inset:0;
+  background:rgba(10,20,30,.75);
+  z-index:50;
+  align-items:center; justify-content:center;
+  padding:20px;
+}
+.modal-overlay.active{ display:flex; }
+.modal-box{
+  background:#000;
+  border-radius:14px;
+  width:100%; max-width:420px;
+  aspect-ratio:16/9;
+  position:relative;
+  overflow:hidden;
+}
+.modal-box iframe{ width:100%; height:100%; border:none; }
+.modal-close{
+  position:absolute; top:-40px; right:0;
+  background:none; border:none; color:#fff;
+  font-size:15px; font-family:'Karla',sans-serif; cursor:pointer;
+}
+
+/* bottom nav */
+.nav{
+  position:fixed; bottom:0; left:0; right:0;
+  max-width:460px; margin:0 auto;
+  background:#fff;
+  border-top:1px solid var(--border);
+  display:flex;
+  overflow-x:auto;
+  padding: 8px 4px 12px;
+}
+.navbtn{
+  flex:1; min-width:64px;
+  display:flex; flex-direction:column; align-items:center; gap:4px;
+  background:none; border:none; cursor:pointer;
+  color: var(--ink-soft);
+  font-family:'Karla',sans-serif;
+  font-size:9.5px; font-weight:700;
+  padding:4px 2px;
+}
+.navbtn.active{ color: var(--blue); }
+.navbtn svg{ width:20px; height:20px; }
+
+::-webkit-scrollbar{ width:0; height:0; }
